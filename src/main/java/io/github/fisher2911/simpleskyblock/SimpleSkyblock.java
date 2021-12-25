@@ -66,6 +66,7 @@ public final class SimpleSkyblock extends JavaPlugin {
         this.islandLocations.save();
         for (final Player player : Bukkit.getOnlinePlayers()) {
             this.userManager.saveUser(player.getUniqueId());
+            this.getLogger().info("Saving user: " + player.getUniqueId());
         }
     }
 

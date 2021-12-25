@@ -39,13 +39,17 @@ public class UserManager {
 
     public void saveUser(final UUID uuid) {
         final User user = this.userMap.get(uuid);
-        if (user == null) return;
+        if (user == null) {
+            this.plugin.getLogger().severe("User null: " + uuid);
+            return;
+        }
         final File file = this.getUserFile(uuid);
 
         if (!file.exists()) {
             try {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
+                this.plugin.getLogger().info("Creating player file");
             } catch (final IOException exception) {
                 exception.printStackTrace();
             }
@@ -56,6 +60,7 @@ public class UserManager {
 
         try {
             config.save(file);
+            plugin.getLogger().info("Saving player");
         } catch (final IOException exception) {
             exception.printStackTrace();
         }

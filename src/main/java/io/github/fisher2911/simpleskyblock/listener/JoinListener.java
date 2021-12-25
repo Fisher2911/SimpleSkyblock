@@ -35,6 +35,8 @@ public class JoinListener implements Listener {
         final Player player = event.getPlayer();
         final UUID uuid = player.getUniqueId();
 
+        player.setInvulnerable(true);
+
         this.userManager.loadUser(uuid);
         final User user = this.userManager.getUser(uuid);
 
@@ -54,6 +56,10 @@ public class JoinListener implements Listener {
         } catch (final IOException | WorldEditException exception) {
             exception.printStackTrace();
         }
+
+        Bukkit.getScheduler().runTaskLater(this.plugin,
+                () -> player.setInvulnerable(false),
+                60);
 
         player.discoverRecipe(
                 new NamespacedKey(this.plugin, "dirt")
