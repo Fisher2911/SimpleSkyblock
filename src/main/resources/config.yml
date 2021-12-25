@@ -1,0 +1,9 @@
+generator:
+  cobblestone: 80
+  coal_ore: 7
+  iron_ore: 5
+  redstone_ore: 3
+  lapis_ore: 4
+  emerald_ore: 1.0
+  diamond_ore: 0.9
+  obsidian: 0.1

@@ -1,0 +1,16 @@
+name: SimpleSkyblock
+version: '${version}'
+main: io.github.fisher2911.simpleskyblock.SimpleSkyblock
+api-version: 1.18
+authors: [ MasterOfTheFish ]
+website: www.masterofthefish.com
+load: POSTWORLD
+depend: [WorldEdit]
+commands:
+  simpleskyblock:
+    description: Simple skyblock command
+    permission: "simpleskyblock.cmd"
+permissions:
+  simpleskyblock.cmd:
+    default: op
+    description: Permission to use simple skyblock commands
